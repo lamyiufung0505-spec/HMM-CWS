@@ -1,5 +1,5 @@
 # HMM 中文分词
-
+#hyq是猪
 基于**隐马尔可夫模型 (Hidden Markov Model)** 的中文分词系统，使用 BMES 标注体系，在 SIGHAN 2005 PKU 数据集上训练和评测。
 
 ## 功能特性
