@@ -23,3 +23,24 @@ env/
 # 系统文件
 .DS_Store
 Thumbs.db
+
+# 与本仓库无关的本地文件，禁止上传
+.claude/
+hive/
+roster-backups/
+roster.json
+generate_llm_report.py
+generate_formatted_report.py
+*_原始备份.docx
+长文档自动摘要系统研究报告.docx
+README.md.bak
+
+# CRF 实验的本地大文件，禁止上传
+crf_all.txt
+crf_train.txt
+crf_test.txt
+crf_seg_model.pkl
+crf_pos_model.pkl
+train_pd.txt
+test_gold.txt
+test_pd_src.txt
