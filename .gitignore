@@ -44,3 +44,7 @@ crf_pos_model.pkl
 train_pd.txt
 test_gold.txt
 test_pd_src.txt
+
+# 大体积数据与模型，只留本地
+data/icwb2-data/
+hmm_model.json

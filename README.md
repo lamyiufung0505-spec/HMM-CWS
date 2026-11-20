@@ -48,23 +48,20 @@ English version: [README_en.md](README_en.md)
 
 ```
 ├── hmm_segmentation.py           # HMM 主程序：训练、解码、评测
-├── hmm_model.json                # 训练好的 HMM 模型参数（π, A, B）
 ├── crf_model.py                  # CRF：分词 + 词性标注（sklearn-crfsuite）
 ├── prepare_crf_data.py           # 词性标注语料 → CRF 格式，80/20 划分
 ├── requirements.txt              # numpy, scikit-learn, sklearn-crfsuite
 ├── HMM中文分词实验报告.docx        # 课程实验报告
 ├── README_en.md                  # English version
 ├── data/
-│   ├── pku_training.utf8         # PKU 训练集
+│   ├── pku_training.utf8         # PKU 训练集（约 7.7MB，随仓库附带）
 │   ├── pku_test.utf8             # 测试集（原始文本）
 │   ├── pku_test_gold.utf8        # 测试集（黄金标准）
-│   └── icwb2-data/               # SIGHAN 2005 完整数据集
-│       ├── training/             # 各语料库训练数据
-│       ├── testing/              # 各语料库测试数据
-│       ├── gold/                 # 各语料库标准答案
-│       └── scripts/              # 官方评测脚本
+│   └── icwb2-data/               # SIGHAN 2005 完整数据集（约 55MB，不入库，见「数据集」）
 └── README.md
 ```
+
+> `hmm_model.json`（约 2.7MB）为训练产物，运行 `python hmm_segmentation.py` 后在本地生成，不随仓库分发。
 
 ## 快速开始
 
@@ -147,8 +144,9 @@ python crf_model.py
 
 ## 数据集
 
-- [SIGHAN Bakeoff 2005](http://sighan.cs.uchicago.edu/bakeoff2005/) PKU 语料——1998 年《人民日报》，约 19,000 句训练、约 1,900 句测试。完整 icwb2-data 包（四个语料库 + 官方评测脚本）随仓库附带，方便跨语料实验。
-- CRF 部分使用的词性标注语料（`train_pd.txt`，约 45MB，GB18030 编码）**不随仓库分发**——使用前请将其放到脚本同级目录。
+- [SIGHAN Bakeoff 2005](http://sighan.cs.uchicago.edu/bakeoff2005/) PKU 语料——1998 年《人民日报》，约 19,000 句训练、约 1,900 句测试。**PKU 三件套直接随仓库附带**，克隆即可复现训练与评测。
+- 完整 icwb2-data 包（AS / CityU / MSR / PKU 四个语料库 + 官方评测脚本，约 55MB）**不随仓库分发**——从 SIGHAN 官方页面或公开镜像下载后解压到 `data/icwb2-data/` 即可做跨语料实验。
+- CRF 部分使用的词性标注语料（`train_pd.txt`，约 45MB，GB18030 编码）同样**不随仓库分发**——使用前请将其放到脚本同级目录。
 
 ## 许可
 

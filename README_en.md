@@ -110,22 +110,25 @@ The fixes are well known: CRF lets you condition on arbitrary overlapping featur
 
 ```
 ├── hmm_segmentation.py     # HMM: training, Viterbi decoding, evaluation, report
-├── hmm_model.json          # trained HMM parameters (π, A, B)
 ├── crf_model.py            # CRF: segmentation + POS tagging (sklearn-crfsuite)
 ├── prepare_crf_data.py     # POS-tagged corpus → CRF format, 80/20 split
 ├── requirements.txt        # numpy, scikit-learn, sklearn-crfsuite
 ├── data/
-│   ├── pku_training.utf8   # PKU training set (~19k sentences)
+│   ├── pku_training.utf8   # PKU training set (~19k sentences, included)
 │   ├── pku_test.utf8       # PKU test set (raw text)
 │   ├── pku_test_gold.utf8  # PKU test set (gold segmentation)
-│   └── icwb2-data/         # full SIGHAN Bakeoff 2005 corpus (AS/CityU/MSR/PKU)
+│   └── icwb2-data/         # full SIGHAN 2005 corpus (~55MB, not in repo, see Data)
 ├── HMM中文分词实验报告.docx  # course experiment report (Chinese)
 └── README.md
 ```
 
+> `hmm_model.json` (~2.8 MB) is a training artifact — run `python hmm_segmentation.py` to generate it locally.
+
 ## Data
 
-[SIGHAN Bakeoff 2005](http://sighan.cs.uchicago.edu/bakeoff2005/) PKU corpus — 1998 People's Daily, ~19,000 training sentences, ~1,900 test sentences. The complete icwb2-data bundle (four corpora + official scoring scripts) is included for cross-corpus experiments.
+[SIGHAN Bakeoff 2005](http://sighan.cs.uchicago.edu/bakeoff2005/) PKU corpus — 1998 People's Daily, ~19,000 training sentences, ~1,900 test sentences. **The three PKU files ship with the repo**, so training and evaluation are reproducible right after cloning.
+
+The full icwb2-data bundle (AS/CityU/MSR/PKU + official scoring scripts, ~55 MB) is **not redistributed** — download it from the SIGHAN page or a public mirror and unpack it into `data/icwb2-data/` for cross-corpus experiments.
 
 The POS-tagged corpus used by `prepare_crf_data.py` (`train_pd.txt`, ~45 MB, GB18030) is **not redistributed** — place it next to the script before running.
 
